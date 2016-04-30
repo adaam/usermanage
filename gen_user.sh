@@ -1,4 +1,14 @@
 #!/bin/bash
+
+display_help() {
+    echo "Usage: $0 USERNAME PASSWORD" >&2
+    exit 1
+}
+
+if [ "$#" -ne 2 ];then
+  display_help
+fi 
+
 username=$1
 password=$2
 temp_json=$(mktemp -t chef)
